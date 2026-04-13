@@ -1,0 +1,20 @@
+[project]
+name = "inferencia-reto3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.94.0",
+    "httpx>=0.28.1",
+    "litellm>=1.83.0",
+    "numpy<2.0.0",
+    "onnxruntime>=1.24.4",
+    "openai>=2.31.0",
+    "opencv-python-headless>=4.11.0.86",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.2",
+    "requests>=2.33.1",
+    "scipy>=1.17.1",
+    "stable-retro>=1.0.0",
+]
