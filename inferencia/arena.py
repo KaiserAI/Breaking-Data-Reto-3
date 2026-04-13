@@ -69,11 +69,8 @@ def torneo(equipo_1, equipo_2):
             t_inicio = time.perf_counter()
             try:
                 # Obtenemos la acción original de la IA
-                i = time.time()
                 accion_propuesta = ias[agent_id].predict(estado_completo)
                 action = accion_propuesta
-                f = time.time()
-                print(f-i)
             except Exception as e:
                 print(f"💥 Error en {ias[agent_id].nombre_equipo}: {e}")
                 action = ACCION_PENALIZACION
