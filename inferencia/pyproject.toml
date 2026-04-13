@@ -1,0 +1,16 @@
+[project]
+name = "inferencia"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.9.*"
+dependencies = [
+    "autorom[accept-rom-license]>=0.6.1",
+    "litellm>=1.83.0",
+    "numpy>=2.0.2",
+    "onnxruntime>=1.19.2",
+    "opencv-python-headless>=4.13.0.92",
+    "pettingzoo[atari]>=1.25.0",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+]
