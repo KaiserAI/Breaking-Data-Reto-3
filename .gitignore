@@ -1,9 +1,0 @@
-# Entornos virtuales
-.venv/
-venv/
-env/
-
-# Archivos de logs
-logs/
-*.log
-
