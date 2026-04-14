@@ -124,3 +124,34 @@ La inferencia tiene un límite de **25.0 milisegundos por frame**. El árbitro (
 * Si tu agente tarda **más de 25ms**: Verás un log en la terminal indicando `🛑 [PENALIZACIÓN]`. La acción que hayas devuelto se descarta y el árbitro fuerza la acción `0` (quedarse quieto).
 
 *Aviso para usuarios de LLMs:* Una llamada típica a una API externa tarda entre 300ms y 1000ms. Si usas LLMs de forma síncrona en cada frame, tu boxeador pasará el 100% del tiempo penalizado. Necesitarás pensar en procesamiento local o estrategias asíncronas permitidas.
+
+## ⚠️ Solución de Problemas: Error de "cmake" o "build wheel"
+
+El emulador de Atari utiliza código C++ por debajo. Si al hacer `uv sync` te salta un error rojo mencionando **`cmake`**, **`Failed to build multi-agent-ale-py`** o **`gcc`**, significa que tu sistema está intentando compilar el emulador desde cero y te faltan las herramientas de desarrollo.
+
+**Paso 1: Asegura la versión de Python (Recomendado)**
+La mayoría de las veces esto ocurre porque tu sistema intenta usar una versión de Python demasiado nueva (ej. 3.12). Fuerza el uso de la 3.9 para descargar la versión ya compilada:
+\`\`\`bash
+uv python pin 3.9
+uv sync
+\`\`\`
+
+**Paso 2: Si el Paso 1 falla, instala las herramientas de compilación**
+Si tu sistema operativo requiere compilar sí o sí, necesitas instalar esto según tu plataforma:
+
+* **Usuarios de Windows:** 1. Es **altamente recomendable** usar [WSL2 (Windows Subsystem for Linux)](https://learn.microsoft.com/es-es/windows/wsl/install) con Ubuntu para este Hackathon.
+  2. Si quieres hacerlo nativo en Windows, debes instalar las [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/). En el instalador, marca la casilla "Desarrollo para el escritorio con C++". Luego reinicia e intenta `uv sync` de nuevo.
+
+* **Usuarios de Linux (Ubuntu/Debian):**
+  Abre la terminal y ejecuta:
+  \`\`\`bash
+  sudo apt update
+  sudo apt install build-essential cmake
+  \`\`\`
+
+* **Usuarios de macOS:**
+  Abre la terminal y ejecuta:
+  \`\`\`bash
+  xcode-select --install
+  brew install cmake
+  \`\`\`
