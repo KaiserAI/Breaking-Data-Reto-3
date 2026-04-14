@@ -131,10 +131,10 @@ El emulador de Atari utiliza código C++ por debajo. Si al hacer `uv sync` te sa
 
 **Paso 1: Asegura la versión de Python (Recomendado)**
 La mayoría de las veces esto ocurre porque tu sistema intenta usar una versión de Python demasiado nueva (ej. 3.12). Fuerza el uso de la 3.9 para descargar la versión ya compilada:
-\`\`\`bash
+```bash
 uv python pin 3.9
 uv sync
-\`\`\`
+```
 
 **Paso 2: Si el Paso 1 falla, instala las herramientas de compilación**
 Si tu sistema operativo requiere compilar sí o sí, necesitas instalar esto según tu plataforma:
@@ -144,14 +144,14 @@ Si tu sistema operativo requiere compilar sí o sí, necesitas instalar esto seg
 
 * **Usuarios de Linux (Ubuntu/Debian):**
   Abre la terminal y ejecuta:
-  \`\`\`bash
+  ```bash
   sudo apt update
   sudo apt install build-essential cmake
-  \`\`\`
+  ```
 
 * **Usuarios de macOS:**
   Abre la terminal y ejecuta:
-  \`\`\`bash
+  ```bash
   xcode-select --install
   brew install cmake
-  \`\`\`
+  ```
