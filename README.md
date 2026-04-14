@@ -91,22 +91,22 @@ Si usas heurística o redes neuronales basadas en RAM, estas direcciones son int
 
 | Dirección | Valor |
 | :--- | :--- |
-| `ram[17]` | Posición X del boxeador Blanco |
-| `ram[18]` | Posición Y del boxeador Blanco |
-| `ram[19]` | Posición X del boxeador Negro |
-| `ram[20]` | Posición Y del boxeador Negro |
-| `ram[32]` | Puntuación del jugador Blanco |
-| `ram[33]` | Puntuación del jugador Negro |
-| `ram[11]` | Tiempo restante del round (reloj) |
+| `ram[32]` | Posición X del boxeador Blanco |
+| `ram[34]` | Posición Y del boxeador Blanco |
+| `ram[33]` | Posición X del boxeador Negro |
+| `ram[35]` | Posición Y del boxeador Negro |
+| `ram[18]` | Puntuación del jugador Blanco |
+| `ram[19]` | Puntuación del jugador Negro |
+| `ram[17]` | Tiempo restante del round (reloj) |
 
 ### Salida esperada (Acciones)
 Tu método debe devolver un número entero (0-5):
 * `0`: NOOP (Quieto)
 * `1`: GOLPEAR
 * `2`: MOVER ARRIBA
-* `3`: MOVER ABAJO
+* `3`: MOVER DERECHA
 * `4`: MOVER IZQUIERDA
-* `5`: MOVER DERECHA
+* `5`: MOVER ABAJO
 
 ---
 
