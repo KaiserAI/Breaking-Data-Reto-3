@@ -3,11 +3,13 @@ import os
 import sys
 import numpy as np
 import time
+import pygame
 from pettingzoo.atari import boxing_v2
 
 # --- CONFIGURACIÓN DE REGLAS ---
 LIMITE_MS = 25.0 
 ACCION_PENALIZACION = 0 
+FPS_VISUALIZACION = 60
 
 def cargar_agente_desde_carpeta(ruta_carpeta):
     ruta_absoluta = os.path.abspath(ruta_carpeta)
@@ -48,6 +50,8 @@ def torneo(equipo_1, equipo_2):
     recompensas = {'first_0': 0, 'second_0': 0}
     stats_lentitud = {'first_0': 0, 'second_0': 0}
     total_steps = 0
+
+    reloj = pygame.time.Clock()
     
     print(f"\n🥊 ¡COMBATE INICIADO! (Límite: {LIMITE_MS}ms) 🥊")
     
@@ -84,13 +88,15 @@ def torneo(equipo_1, equipo_2):
                 print(f"🛑 [PENALIZACIÓN] {ias[agent_id].nombre_equipo} fue lento: {duracion_ms:.2f}ms (Acción {accion_propuesta} descartada)")
             
             # Debug opcional: Descomenta la línea de abajo para ver el tiempo de CADA frame
-            # print(f"⏱️ {ias[agent_id].nombre_equipo}: {duracion_ms:.2f}ms")
+            #print(f"⏱️ {ias[agent_id].nombre_equipo}: {duracion_ms:.2f}ms")
 
         env.step(action)
         total_steps += 1
+        if agent_id == 'second_0':
+            reloj.tick(FPS_VISUALIZACION)
         
     env.close()
     print(f"\n🏆 RESULTADO: {agente_blanco.nombre_equipo} {recompensas['first_0']} - {recompensas['second_0']} {agente_negro.nombre_equipo}")
 
 if __name__ == "__main__":
-    torneo("equipo_vision", "equipo_vision")
+    torneo("equipo_random", "equipo_random")
