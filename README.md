@@ -108,6 +108,8 @@ Tu método debe devolver un número entero (0-5):
 * `4`: MOVER IZQUIERDA
 * `5`: MOVER ABAJO
 
+Admite de 0 a 17 acciones, pero estas son solo combinaciones de las anteriores. Pueden probar las que quieran. 
+
 ---
 
 ## 5. El Motor del Torneo y Penalizaciones
