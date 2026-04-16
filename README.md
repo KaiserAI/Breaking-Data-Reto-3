@@ -125,6 +125,10 @@ La inferencia tiene un límite de **25.0 milisegundos por frame**. El árbitro (
 
 *Aviso para usuarios de LLMs:* Una llamada típica a una API externa tarda entre 300ms y 1000ms. Si usas LLMs de forma síncrona en cada frame, tu boxeador pasará el 100% del tiempo penalizado. Necesitarás pensar en procesamiento local o estrategias asíncronas permitidas.
 
+# Entrega
+
+La entrega será una carpeta como las de ejemplo en `inferencia/modelos`, pero en vez de `equipo_onnx` el nombre de vuestro equipo. Esta debe de contener el `submission.py` y el modelo en formato `.onnx` o `.onnx.data` si lo tienen. Esto último en el caso de aprendizaje por refuerzo. No es necesario el archivo de entrenamiento y si `vuestro submission.py` necesita otro archivo para funcionar también, pero recuerden que todo debe funcionar en el entorno de inferencia que no pueden instalar ni deseinstalar nada. Si al cambiar el nombre del equipo por el de vuestra carpeta dentro de `modelos` en el `main` de `arena.py` funciona con `uv run arena.py` entonces bien.
+
 ## ⚠️ Solución de Problemas: Error de "cmake" o "build wheel"
 
 El emulador de Atari utiliza código C++ por debajo. Si al hacer `uv sync` te salta un error rojo mencionando **`cmake`**, **`Failed to build multi-agent-ale-py`** o **`gcc`**, significa que tu sistema está intentando compilar el emulador desde cero y te faltan las herramientas de desarrollo.
